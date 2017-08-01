@@ -11,11 +11,13 @@ import { AppComponent } from './app.component';
 import { ChatComponent } from './componentes/chat/chat.component';
 
 import {ChatService} from './services/chat.service';
+import { LoginComponent } from './componentes/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatComponent
+    ChatComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

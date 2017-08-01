@@ -1,12 +1,17 @@
 <div class="container main-container">
-    <h1>FireChat</h1>
-    <hr>
-    <div class="chat-window">
-        <app-chat></app-chat>
+  <h1>FireChat</h1>
+  <hr>
+  <div *ngIf="!_chatSRV.usuario" class="animated fadein slow">
+    <app-login></app-login>
+  </div>
+  <div *ngIf="_chatSRV.usuario">
+    <div class="row">
+      <div class="col-md-12 text-right">
+        <button type="button" class="btn btn-outline-danger animated fadein slow" (click)="_chatSRV.logout()">Logout</button>
+      </div>
     </div>
+    <div class="chat-window animated fadein fast">
+      <app-chat></app-chat>
+    </div>
+  </div>
 </div>
-<!-- <ul>
-  <li class="text" *ngFor="let chat of chats | async">
-    {{chat.mensaje}}
-  </li>
-</ul> -->

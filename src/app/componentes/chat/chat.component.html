@@ -2,38 +2,13 @@
 <hr>
 <div id="app-mensajes" class="app-mensajes">
     <div *ngFor="let chat of _chatSRV.chats | async"
-    [ngClass]="{'text-right': _chatSRV.usuario.nombre == chat.nombre, 'text-left': _chatSRV.usuario.nombre != chat.nombre}"
+    [ngClass]="{'text-right': _chatSRV.usuario.uid == chat.uid, 'text-left': _chatSRV.usuario.uid != chat.uid}"
     >
-      <span class="badge" [ngClass]="{'badge-primary': _chatSRV.usuario.nombre == chat.nombre, 'badge-success': _chatSRV.usuario.nombre != chat.nombre}" >{{chat.nombre}}</span>
+      <span class="badge" [ngClass]="{'badge-primary': _chatSRV.usuario.uid == chat.uid, 'badge-success': _chatSRV.usuario.uid != chat.uid}" >{{chat.nombre}}</span>
       <p>
         {{chat.mensaje}}
       </p>
     </div>
-
-  <!-- <div class="text-right">
-    <span class="badge badge-primary">Local</span>
-    <p>
-      Mensaje de usuario local
-    </p>
-  </div>
-  <div>
-    <span class="badge badge-success">Remoto</span>
-    <p>
-      Mensaje de usuario remoto
-    </p>
-  </div>
-  <div class="text-right">
-    <span class="badge badge-primary">Local</span>
-    <p>
-      2do. Mensaje de usuario local
-    </p>
-  </div>
-  <div>
-    <span class="badge badge-success">Remoto</span>
-    <p>
-      2do. Mensaje de usuario remoto
-    </p>
-  </div> -->
 </div>
 <input [(ngModel)]="mensaje" name="mensaje"
         (keyup.enter)="enviar()"
